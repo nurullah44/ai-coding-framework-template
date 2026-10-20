@@ -1,29 +1,18 @@
-# <Title>
+# Task template
 
-## Goal
+> **Fill this in.** The shape of one piece of work, as a Planner writes it and a Builder reads it. Every ticket copies this file.
 
-<One or two sentences, from the user's point of view.>
+## Questions to answer
 
-## Acceptance criteria
+- What is the goal, from the user's point of view?
+- How is each acceptance criterion written so someone else can check it?
+- How is each criterion proven? Name the observable result.
+- Which error and edge cases must this piece of work handle, and which are out of scope?
+- What constraints apply: files, libraries, decisions, risky areas?
+- How big is it expected to be, and what blocks it?
 
-<!-- Each criterion is observable. Source = issue, human decision, ADR, or feature-map entry. -->
-- [ ] <criterion> (source: <link or quote>)
+Replace the questions with headings and placeholders once you know your answers.
 
-## Verification plan
+## A filled example
 
-- Feature-map areas: <`.agents/skills/verify/features/<area>.md`, …>
-- Paths to drive: <success / cancel / error / empty / persistence, as relevant>
-- Not reachable by the harness: <path and reason, or "none">
-- No runtime behaviour? <Only when the change cannot be driven at all (e.g. docs). Name the proof that replaces live driving, or write "none" and accept `UNVERIFIED`.>
-
-## Out of scope
-
-- <item> → <follow-up task link>
-
-## Constraints
-
-<Files, libraries, prior decisions, one-way doors touched (if any, this task is L0).>
-
-## Blocked by
-
-<Task links, or "none".>
+[`docs/agents/templates/task.md` in ai-coding-framework](https://github.com/nurullah44/ai-coding-framework/blob/main/docs/agents/templates/task.md).

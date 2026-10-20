@@ -1,25 +1,17 @@
 # Invariants
 
-Rules the code must never break. This is the project's `LAWS` file. Bend checks laws with proofs; we check each one with the strongest mechanism the stack allows.
+> **Fill this in.** Rules your code must never break, each with the mechanism that enforces it, plus the one blessed way to do each recurring thing.
 
-Each invariant names its enforcement. `none` is allowed but always has a matching garden entry, because an invariant without enforcement is only a wish.
+## Questions to answer
 
-| # | Invariant | Enforced by | Rung |
-|---|---|---|---|
-| 1 | <!-- e.g. UI code never imports from server/ --> | <!-- e.g. lint rule no-restricted-imports --> | 2 |
+- Which rules must the code never break? For each, what check enforces it?
+- Which recurring jobs (errors, input parsing, database access) have exactly one way to be done, and where is the example file?
+- Which way may dependencies between modules point, and what enforces it?
 
-## Blessed patterns
-
-One way to do each recurring thing. Agents extend these, never alternatives.
-
-| Concern | The one way | Example file |
+| # | Invariant | Enforced by |
 |---|---|---|
-| | | |
+| 1 | | |
 
-## Module boundaries
+## A filled example
 
-Dependencies point one way. Write the allowed direction here, then enforce it with an import-boundary lint as soon as the stack exists.
-
-```
-<!-- e.g. features/* → shared/* → core/*   (never the reverse; features never import each other) -->
-```
+[`docs/agents/invariants.md` in ai-coding-framework](https://github.com/nurullah44/ai-coding-framework/blob/main/docs/agents/invariants.md).

@@ -1,36 +1,31 @@
-# ai-coding-framework
+# ai-coding-framework-template
 
-A copyable, stack-agnostic template for building software with coding agents (Claude Code, Codex, Pi) without losing architecture or code quality as volume grows.
+**For people who want to design their own way of building software with coding agents.** This is an empty skeleton: every file is in place, and each one says what it is for and which questions to answer. If you want a framework that is complete and ready to use, start from [ai-coding-framework](https://github.com/nurullah44/ai-coding-framework) instead.
 
-**Status: draft.** It changes only when something learned in real use proves worth keeping.
+## How to use it
 
-## Use it
+1. Click **Use this template** on GitHub to create your repo.
+2. Open each file below. It tells you what the file is for and lists the questions to answer. Replace the questions with your answers.
+3. Each file links to its filled version in ai-coding-framework, in case you want to see one way of answering.
 
-Click **Use this template**, or copy these files into your repo. Then fill in the `TODO`s in `AGENTS.md`.
+A good order: principles first, then the process and the roles, then the templates, and the guide last, once the rest is settled.
 
-Claude Code loads `AGENTS.md` by itself only when there is no `CLAUDE.md`. If you add one (`/init` creates it), make its first line `@AGENTS.md`, or the rules stop loading.
+Claude Code reads `AGENTS.md` by itself only when there is no `CLAUDE.md`. If you add one (`/init` creates it), make its first line `@AGENTS.md`.
 
-## Idea
+## The parts
 
-Agents scale only as far as you trust their output. This template gives a project:
+| Path | What it is for |
+|---|---|
+| `AGENTS.md` | Loaded by every agent in every session: commands, hard rules, pointers to the rest |
+| `docs/guide.md` | How a project goes from start to finish, for newcomers |
+| `docs/agents/principles.md` | The few ideas every other rule serves |
+| `docs/agents/process.md` | Roles, models, work size, and the rules of the loop |
+| `docs/agents/roles/` | One job description per role: Planner, Builder, Reviewer, Coordinator |
+| `docs/agents/templates/` | The shape of a piece of work, and of a review result |
+| `docs/agents/invariants.md` | Rules the code must never break, each with what enforces it |
+| `docs/agents/trust-ladder.md` | Where to fix a mistake so it can't come back |
+| `docs/agents/garden.md` | The log of mistakes and corrections |
+| `.agents/skills/verify/` | How agents prove a change works: the skill, a stub CLI, and a feature map |
+| `tools/` | Scripts for mechanical jobs, such as starting a role |
 
-- **Verification:** agents prove their work on the running app with one CLI (`.agents/skills/verify/`) and a feature map, instead of claiming it works.
-- **A trust ladder:** every correction is fixed at the strongest layer that can hold it: codebase structure, then static analysis, then guidance, and human review last.
-- **A task loop:** issues move through plan → build → independent review → merge, with evidence at each step.
-- **A small always-loaded context:** only `AGENTS.md` and skill descriptions load every session; everything else loads per role.
-
-## Layout
-
-```
-AGENTS.md                 always loaded; commands, hard rules, pointers
-docs/agents/              process, trust ladder, invariants, roles, templates, garden
-.agents/skills/verify/    verification contract, stub CLI, feature map
-.claude/skills            symlink to .agents/skills
-```
-
-## Sources
-
-- Lauren Tan: [talk](https://youtu.be/Z-jNqqIYGm4), [interview with Matt Pocock](https://www.youtube.com/live/MN9dGgmLyso), [pstack](https://github.com/cursor/plugins/tree/main/pstack), [verification-skill-example](https://github.com/poteto/verification-skill-example)
-- Matt Pocock: [skills](https://github.com/mattpocock/skills)
-- Alexey Grigorev: [AI-native development: specifications](https://aishippingblog.com/p/ai-native-development-specifications)
-- [Bend](https://bend-lang.com/): laws checked by proof, the idea behind `docs/agents/invariants.md`
+The four roles are a starting point, not a rule. Rename, merge or add roles to fit how you work, and keep `process.md` in step.

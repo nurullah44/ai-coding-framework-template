@@ -1,24 +1,13 @@
 # Feature map
 
-Behaviour-level inventory of the app. Agents use it to decide what to drive and what counts as evidence. Humans use it as the regression checklist. Fix drift in the same PR as the change that caused it.
+> **Fill this in.** An inventory of what the app does, one file per area, so an agent knows what to drive and what counts as evidence. It also serves as the regression checklist.
 
-## Baseline preconditions
+## Questions to answer
 
-<!-- Project-wide: signed-in state, seed data, flags, selector conventions. -->
+- What does every feature file contain, and under which headings?
+- In what order are the features run for a full regression?
+- What must be true before a run (seed data, a signed-in user, flags)?
 
-## Sweep order
+## A filled example
 
-Walk top to bottom for a broad regression.
-
-<!-- - [area](area.md): one-line summary -->
-
-## Entry contract
-
-One file per feature area, short enough to run without reading source. Every file has exactly these four H2s:
-
-1. `Sub-features`: what exists.
-2. `How to get to it (user POV)`: entry points a user takes.
-3. `Driving it with verify`: the commands, selectors, and expected end states.
-4. `Gotchas`: what usually lies, flakes, or needs a manual step.
-
-Split a file when one section needs its own preconditions.
+[`.agents/skills/verify/features/README.md` in ai-coding-framework](https://github.com/nurullah44/ai-coding-framework/blob/main/.agents/skills/verify/features/README.md).

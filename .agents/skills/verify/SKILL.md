@@ -5,36 +5,15 @@ description: Drive the running app like a user and capture evidence that a chang
 
 # Verify
 
-`./.agents/skills/verify/verify --help` is canonical. Always use this CLI. Never write a one-off driver script; if the CLI is missing a command you need, say so and log it in `docs/agents/garden.md`.
+> **Fill this in.** How agents prove a change works on the running app instead of claiming it. The `verify` script next to this file is a stub that answers "not configured" (exit 2) until you build the real one.
 
-## Command contract
+## Questions to answer
 
-Every project implements these. The adapter behind them is stack-specific (browser via Playwright/CDP, HTTP calls, a CLI process, a device).
+- Which commands does the proof tool have (for example: check health, start and stop an instance, perform one user action, save evidence, run every feature)?
+- What counts as proof, and what does not ("it opens", a passing unit test)?
+- What is the result when the proof could not run?
+- Where is the evidence kept?
 
-| Command | Does | Exit code |
-|---|---|---|
-| `doctor` | Checks the build is fresh, the app is reachable, and fixtures exist | 0 healthy, 1 broken, 2 not configured |
-| `start` / `stop` | Starts or stops an isolated instance for this checkout | 0 / non-zero |
-| `drive <action> …` | Performs one user-level action | 0 / non-zero |
-| `evidence <name>` | Captures an artifact (screenshot, trace, response, log) into `.verify/artifacts/` | 0 / non-zero |
-| `sweep` | Walks `features/README.md` in order for a broad regression | 0 all pass |
+## A filled example
 
-Exit code 2 means verification is not configured. The verdict is then `UNVERIFIED`, never PASS.
-
-## No runtime behaviour
-
-If the task's verification plan says the change has no runtime behaviour (for example, docs only), run the proof it names instead of this CLI, and say so. Judge whether the claim is true: a change with runtime behaviour can't opt out. If the plan names no proof, or the proof could not run, the result is `UNVERIFIED`.
-
-## Proof bar
-
-- Run `doctor` first. Evidence against a stale build is not evidence.
-- Drive the production user path. Use inspection (eval, DB read, logs) only to check state after the user path ran, never as the main proof.
-- Read the feature-map entry for each area you touch. Cover every entry point it lists and the success, cancel, error, empty, and persistence paths the change can affect.
-- Check side effects, not just what's on screen: stored data, network calls, a reload round trip.
-- "It opens" is not proof. Show the trigger and the stable end state.
-- Mocks count only at the same boundary a real external dependency would sit behind.
-- Name every path you could not reach and why.
-
-## Feature map
-
-`features/README.md` is the index and sweep order. Each entry follows the contract in that file.
+[`.agents/skills/verify/SKILL.md` in ai-coding-framework](https://github.com/nurullah44/ai-coding-framework/blob/main/.agents/skills/verify/SKILL.md).

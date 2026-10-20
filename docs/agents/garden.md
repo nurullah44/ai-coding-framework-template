@@ -1,9 +1,16 @@
 # Garden
 
-Append-only buffer of corrections, workarounds, and weeds. The Gardener reviews it in batches and turns repeated entries into rung 1 or 2 fixes.
+> **Fill this in.** The log of mistakes, corrections and workarounds, kept so recurring ones can be fixed for good.
 
-Status values: `open`, `promoted` (a fix landed; link it), `wontfix` (reason given).
+## Questions to answer
 
-| Date | Source | What happened | Target rung | Proposed fix | Status |
-|---|---|---|---|---|---|
-| | <!-- task id, review, transcript, human --> | | <!-- 1-4 --> | | open |
+- What goes in: every correction, every review remark, only some?
+- What does one row hold? How do you notice that the same thing happened again?
+- Who reads it, and when?
+
+| Date | Source | What happened | Proposed fix | Status |
+|---|---|---|---|---|
+
+## A filled example
+
+[`docs/agents/garden.md` in ai-coding-framework](https://github.com/nurullah44/ai-coding-framework/blob/main/docs/agents/garden.md).
